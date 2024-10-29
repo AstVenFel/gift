@@ -3,6 +3,7 @@ export const img = [
   "../assets/img/act_1/taxi.jpg",
   "../assets/img/act_1/house.jpg",
   "../assets/img/act_1/door.png",
+  "../assets/img/act_2/entre-house.jpg",
 ];
 
 export const paragraph = [
@@ -14,4 +15,5 @@ export const paragraph = [
   "Прождав пару минут, я начал осматривать дверь. Рядом с замком был циферблат, но вместо цифр значились латинские буквы.",
   "Чуть ниже на двери была выцарапана фраза: «zeg vriend en kom binnen».",
   "Введя код, и повернув ручку дверь отварилась.",
+  "Дом казался",
 ];

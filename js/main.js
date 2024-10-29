@@ -6,7 +6,7 @@ const wrapper = document.querySelector(".wrapper");
 let counterClickBtn = 0;
 let counterImg = 0;
 
-const sliderPrev = document.querySelector(".slider__btn history");
+const btnHistory = document.querySelector(".slider__btn-history");
 const sliderNext = document.querySelector(".slider__next");
 const sliderText = document.querySelector(".slider__text");
 
@@ -21,7 +21,6 @@ const updateBackgroundImage = (counterImg) => {
 const handleSliderChange = () => {
   if (counterClickBtn < paragraph.length - 1) {
     counterClickBtn += 1;
-    showprogress();
     if ((counterClickBtn % 2 === 0) & (counterImg < img.length - 1)) {
       counterImg += 1;
       updateBackgroundImage(counterImg);
@@ -33,6 +32,8 @@ const handleSliderChange = () => {
 sliderNext.addEventListener("click", () => {
   handleSliderChange();
   showInputDoor();
+  showTextJornal();
+  showprogress();
 });
 //
 
@@ -53,17 +54,43 @@ const startTaskOne = () => {
     handleSliderChange("next");
     sliderNext.textContent = "Войти внутрь";
     inputBox.classList.remove("input-box-active");
+  } else if (inputDoor.value.length !== 0) {
+    counterClickBtn = 5;
+    counterImg -= 1;
+    inputDoor.value = "";
+    inputDoor.setAttribute("placeholder", "не угадал");
   } else {
     counterClickBtn = 5;
+    counterImg -= 1;
   }
 };
 //
 
 //Пройденный прогресс
-const boxHeartProgress = document.querySelector(".box-heart__progress");
+const boxIndicatorsProgress = document.querySelector(
+  ".box-indicators__progress"
+);
 
 const showprogress = () => {
   let progress = (counterClickBtn / paragraph.length) * 100;
-  boxHeartProgress.textContent = `Пройденный прогресс: ${progress.toFixed()}%`;
+  boxIndicatorsProgress.textContent = `Пройденный прогресс: ${progress.toFixed()}%`;
 };
+//
+
+//Журнал
+const journal = document.querySelector(".journal");
+let dellRepeat = 0;
+
+const showTextJornal = () => {
+  if (dellRepeat !== counterClickBtn) {
+    let text = paragraph[counterClickBtn - 1];
+    dellRepeat = counterClickBtn;
+    journal.insertAdjacentHTML("beforeend", `<p>${text}</p>`);
+  }
+};
+
+btnHistory.addEventListener("click", () => {
+  journal.classList.toggle("journal-active");
+});
+
 //
