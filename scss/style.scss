@@ -54,6 +54,45 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        .popup {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(../assets/img/act_1/popup_1.jfif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: 2;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            .popup__title {
+                margin-bottom: 10px;
+                font-family: font-title;
+                font-size: 72px;
+                color: #fafafa;
+                text-align: center;
+                text-shadow:
+                    -1px -1px 0 rgb(0, 0, 0),
+                    1px -1px 0 rgb(0, 0, 0),
+                    -1px 1px 0 rgb(0, 0, 0),
+                    1px 1px 0 rgb(0, 0, 0);
+            }
+            .popup__text {
+                margin-top: 50vh;
+                font-size: 45px;
+                color: #050505;
+                text-align: center;
+                text-shadow:
+                    -1px -1px 0 rgb(255, 255, 255),
+                    1px -1px 0 rgb(255, 255, 255),
+                    -1px 1px 0 rgb(255, 255, 255),
+                    1px 1px 0 rgb(255, 255, 255);
+            }
+        }
+        .popup-active {
+            display: flex;
+        }
         .journal {
             display: none;
             position: absolute;
@@ -82,7 +121,9 @@ html {
                 background: #555;
             }
         }
-        .journal-active {display: block;}
+        .journal-active {
+            display: block;
+        }
 
         .header {
             .container {
@@ -163,12 +204,27 @@ html {
                                 color: #ffffff;
                             }
                         }
-                        .slider__prev {
-                        }
-                        .slider__next {
+                        .slider-Act-inactive {
+                            display: none;
                         }
                     }
                 }
+                .slider-inactive {
+                    display: none;
+                }
+                .card-box {
+                    display: none;
+                    gap: 15px;
+                    grid-template-columns: repeat(3, 1fr);
+                    .card-box__card {
+                        width: 7.25rem;
+                        height: 7.25rem;
+                        background-color: #fff;
+                        cursor: pointer;
+                    }
+                    .card-box__card-active {background-color: #f30b0b;}
+                }
+                .card-box-active {display: grid;}
             }
         }
         .footer {
