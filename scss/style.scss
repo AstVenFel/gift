@@ -215,16 +215,28 @@ html {
                 .card-box {
                     display: none;
                     gap: 15px;
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(4, 1fr);
+                    margin-bottom: 10vh;
                     .card-box__card {
-                        width: 7.25rem;
-                        height: 7.25rem;
-                        background-color: #fff;
+                        width: 10.25rem;
+                        height: 10.25rem;
+                        background-color: #ffffff36;
                         cursor: pointer;
                     }
-                    .card-box__card-active {background-color: #f30b0b;}
+                    .card-box__card-active {
+                        background-image: url(../assets/img/act_2/hit.png);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
                 }
-                .card-box-active {display: grid;}
+                .card-box-active {
+                    display: grid;
+                    transition: transform 0.5s ease;
+                }
             }
         }
         .footer {

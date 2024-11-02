@@ -3,8 +3,8 @@ import { img, paragraph } from "./scenario.js";
 const wrapper = document.querySelector(".wrapper");
 
 //Смена картинок и диалогов
-let counterClickBtn = 28;
-let counterImg = 13;
+let counterClickBtn = 0;
+let counterImg = 0;
 let counterHeart = 100;
 
 const slider = document.querySelector(".slider");
@@ -174,6 +174,8 @@ const timeGame = (timeEnd, intervall) => {
     if (flag === false) {
       counterHeart -= 10;
       showHeart(counterHeart);
+    } else {
+      flag = false;
     }
     if (counterHeart < 10) {
       clearInterval(ckeck);
@@ -183,6 +185,11 @@ const timeGame = (timeEnd, intervall) => {
 
   setTimeout(() => {
     clearInterval(ckeck);
+    handleSliderChange();
+    showTextJornal();
+    showprogress();
+    slider.classList.remove("slider-inactive");
+    cardBox.classList.remove("card-box-active");
   }, timeEnd);
 };
 
@@ -190,8 +197,8 @@ const randomNums = () => {
   let num = 0;
   let flag = true;
   while (flag) {
-    num = (Math.random() * 10).toFixed();
-    if (num < 9) {
+    num = (Math.random() * 10).toFixed(1) * 10;
+    if (num < 16) {
       flag = false;
     }
   }
@@ -200,8 +207,8 @@ const randomNums = () => {
 
 let timeCardBox = [];
 let counterTime = 0;
-let intervall = 700;
-let counterHit = 15;
+let intervall = 670;
+let counterHit = 20;
 
 const getCardBox = () => {
   for (let index = 0; index < counterHit; index++) {
@@ -214,7 +221,7 @@ getCardBox();
 
 const task__two = () => {
   const timeEnd = intervall * counterHit;
-  // timeGame(timeEnd, intervall);
+  timeGame(timeEnd, intervall);
   timeCardBox.forEach(([a, b, c]) => {
     setTimeout(() => {
       cardBox.children[c].classList.add("card-box__card-active");

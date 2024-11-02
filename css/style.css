@@ -204,19 +204,27 @@ li {
 .body .wrapper .main .container__main .card-box {
   display: none;
   gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 10vh;
 }
 .body .wrapper .main .container__main .card-box .card-box__card {
-  width: 7.25rem;
-  height: 7.25rem;
-  background-color: #fff;
+  width: 10.25rem;
+  height: 10.25rem;
+  background-color: rgba(255, 255, 255, 0.2117647059);
   cursor: pointer;
 }
 .body .wrapper .main .container__main .card-box .card-box__card-active {
-  background-color: #f30b0b;
+  background-image: url(../assets/img/act_2/hit.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.body .wrapper .main .container__main .card-box .card-box__card-active:hover {
+  transform: scale(1.2);
 }
 .body .wrapper .main .container__main .card-box-active {
   display: grid;
+  transition: transform 0.5s ease;
 }
 .body .wrapper .footer .container .box-indicators {
   display: flex;
