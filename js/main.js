@@ -38,10 +38,7 @@ const popupText = document.querySelector(".popup__text");
 
 sliderNext.addEventListener("click", () => {
   if (counterClickBtn === 25) {
-    popup.style.backgroundImage = "url(../assets/img/act_2/die.jpg)";
-    popupTitle.textContent = "Плохая концовка";
-    popupText.textContent = "Вы умерли!";
-    popup.classList.add("popup-active");
+    showYouLoose();
   }
   handleSliderChange();
   showInputDoor();
@@ -51,6 +48,15 @@ sliderNext.addEventListener("click", () => {
   console.log(counterClickBtn);
   console.log(counterImg);
 });
+//
+
+//концовка смерти
+const showYouLoose = () => {
+  popup.style.backgroundImage = "url(../assets/img/act_2/die.jpg)";
+  popupTitle.textContent = "Плохая концовка";
+  popupText.textContent = "Вы умерли!";
+  popup.classList.add("popup-active");
+};
 //
 
 const cardBox = document.querySelector(".card-box ");
@@ -156,7 +162,29 @@ const showHeart = (counterHeart) => {
   boxIindicatorsHeart.textContent = `Количество жизней:${counterHeart}%`;
 };
 
-cardBox.addEventListener("click", () => {});
+//Второе задание
+const timeGame = (timeEnd, intervall) => {
+  let flag = false;
+  let ckeck = setInterval(() => {
+    cardBox.addEventListener("click", (e) => {
+      if (e.target.className === "card-box__card card-box__card-active") {
+        flag = true;
+      }
+    });
+    if (flag === false) {
+      counterHeart -= 10;
+      showHeart(counterHeart);
+    }
+    if (counterHeart < 10) {
+      clearInterval(ckeck);
+      showYouLoose();
+    }
+  }, intervall);
+
+  setTimeout(() => {
+    clearInterval(ckeck);
+  }, timeEnd);
+};
 
 const randomNums = () => {
   let num = 0;
@@ -171,10 +199,11 @@ const randomNums = () => {
 };
 
 let timeCardBox = [];
+let counterTime = 0;
+let intervall = 700;
+let counterHit = 15;
+
 const getCardBox = () => {
-  let counterTime = 0;
-  let intervall = 500;
-  let counterHit = 20;
   for (let index = 0; index < counterHit; index++) {
     let randomNum = randomNums();
     timeCardBox.push([counterTime, counterTime + intervall, randomNum]);
@@ -182,9 +211,10 @@ const getCardBox = () => {
   }
 };
 getCardBox();
-console.log(timeCardBox);
 
 const task__two = () => {
+  const timeEnd = intervall * counterHit;
+  // timeGame(timeEnd, intervall);
   timeCardBox.forEach(([a, b, c]) => {
     setTimeout(() => {
       cardBox.children[c].classList.add("card-box__card-active");
@@ -194,3 +224,4 @@ const task__two = () => {
     }, b);
   });
 };
+//
