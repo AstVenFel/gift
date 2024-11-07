@@ -237,6 +237,216 @@ html {
                     display: grid;
                     transition: transform 0.5s ease;
                 }
+                .playing-Field {
+                    margin-bottom: 10vh;
+                    display: none;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 1.5625rem;
+                    min-height: 100%;
+                    overflow: hidden;
+                    .playing-Field__enemy {
+                        display: flex;
+                        justify-content: center;
+                        gap: 1.25rem;
+                        span {
+                            color: #ffffff;
+                            text-shadow:
+                                -1px -1px 0 black,
+                                1px -1px 0 black,
+                                -1px 1px 0 black,
+                                1px 1px 0 black;
+                            font-size: 1.5rem;
+                        }
+                        .playing-Field__box-heart-enemy {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            gap: 0.3125rem;
+                            .playing-Field-heart-enemy {
+                                width: 2rem;
+                            }
+                        }
+                    }
+                    .playing-Field__general {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 1.875rem;
+                        .playing-Field__card-user {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 1rem;
+                            margin-bottom: 0.9375rem;
+                            max-width: 13.5rem;
+                            background-color: #5e9bc9b2;
+                            border-radius: 0.625rem;
+                            padding: 0rem 0.3125rem;
+                            filter: brightness(0.95);
+                            transition: all 0.5s ease-in-out;
+                            .card__img-user {
+                                max-width: 6.25rem;
+                                margin-top: 1.25rem;
+                                object-fit: cover;
+                            }
+                            .card__answer-user {
+                                font-size: 0.875rem;
+                                pointer-events: none;
+                                border: none;
+                                background-color: transparent;
+                            }
+                            .card__skils-user {
+                                margin-bottom: 1.25rem;
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 0.3125rem;
+                                filter: brightness(0.9);
+                            }
+                        }
+                        .playing-Field__btn-game {
+                            max-height: 3.125rem;
+                            padding: 0rem 3.125rem;
+                            font-size: 1.625rem;
+                            cursor: pointer;
+                        }
+                        .playing-Field__btn-game-inactive {
+                            pointer-events: none;
+                        }
+                        .playing-Field__card-enemy {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 1rem;
+                            margin-bottom: 0.9375rem;
+                            max-width: 13.5rem;
+                            background-color: #5e9bc9b2;
+                            border-radius: 0.625rem;
+                            padding: 0rem 0.3125rem;
+                            filter: brightness(0.95);
+                            transition: all 0.5s ease-in-out;
+                            .card__img-enemy {
+                                max-width: 6.25rem;
+                                margin-top: 1.25rem;
+                                object-fit: cover;
+                            }
+                            .card__answer-enemy {
+                                font-size: 0.875rem;
+                                pointer-events: none;
+                                border: none;
+                                background-color: transparent;
+                            }
+
+                            .card__skils-enemy {
+                                margin-bottom: 1.25rem;
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 0.3125rem;
+                                filter: brightness(0.9);
+                            }
+                        }
+                    }
+                    .playing-Field__user {
+                        display: flex;
+                        overflow-x: scroll;
+                        gap: 0.3125rem;
+                        align-items: last baseline;
+                        max-width: 100%;
+                        .playing-Field__card {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: start;
+                            align-items: center;
+                            gap: 1rem;
+                            margin-bottom: 0.9375rem;
+                            width: 100%;
+                            // max-width: 13.5rem;
+                            background-color: #5e9bc9b2;
+                            border-radius: 0.625rem;
+                            padding: 0rem 0.3125rem;
+                            filter: brightness(0.95);
+                            transition: all 0.5s ease-in-out;
+                            .card__img {
+                                max-width: 6.25rem;
+                                margin-top: 1.25rem;
+                                object-fit: cover;
+                            }
+                            .card__question {
+                                font-size: 1.125rem;
+                                text-align: center;
+                                font-weight: 700;
+                                height: 0;
+                                overflow: hidden;
+                                overflow: 0;
+                                transition: height 0.5s ease-in-out;
+                            }
+                            .card__question-active {
+                                height: auto;
+                            }
+                            .card__answer {
+                                max-width: 18.75rem;
+                                font-size: 18px;
+                            }
+                            .card__skils {
+                                margin-bottom: 1.25rem;
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 0.7rem;
+                                filter: brightness(0.9);
+                                .card__heart {
+                                    text-align: center;
+                                }
+                                .card__attack {
+                                    text-align: center;
+                                }
+                                .card__healing {
+                                    text-align: center;
+                                }
+                            }
+                            .card__btn {
+                                padding: 0.3125rem 0.625rem;
+                                margin-bottom: 1.25rem;
+                                cursor: pointer;
+                            }
+                            &:hover {
+                                cursor: pointer;
+                                filter: brightness(1);
+                            }
+                        }
+                        .playing-Field__card-active {
+                        }
+                        .playing-Field__card-inactive {
+                            pointer-events: none;
+                            filter: brightness(0.4);
+                        }
+                        .playing-Field__card-permoment-inactive {
+                            pointer-events: none;
+                            filter: brightness(0.5);
+                        }
+                        &::-webkit-scrollbar {
+                            height: 1rem;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background: rgba(0, 0, 0, 0.616);
+                            border-radius: 0.625rem;
+                        }
+                        &::-webkit-scrollbar-track {
+                            background: rgba(0, 0, 0, 0.26);
+                        }
+                    }
+                }
+                .playing-Field-active {
+                    display: flex;
+                }
             }
         }
         .footer {
