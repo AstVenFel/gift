@@ -277,9 +277,11 @@ li {
 }
 .body .wrapper .main .container__main .playing-Field .playing-Field__general .playing-Field__card-user .card__img-user {
   max-width: 6.25rem;
+  min-height: 7.25rem;
+  max-height: 6.25rem;
   margin-top: 1.25rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .body .wrapper .main .container__main .playing-Field .playing-Field__general .playing-Field__card-user .card__answer-user {
   font-size: 0.875rem;
@@ -321,9 +323,11 @@ li {
 }
 .body .wrapper .main .container__main .playing-Field .playing-Field__general .playing-Field__card-enemy .card__img-enemy {
   max-width: 6.25rem;
+  min-height: 7.25rem;
+  max-height: 6.25rem;
   margin-top: 1.25rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .body .wrapper .main .container__main .playing-Field .playing-Field__general .playing-Field__card-enemy .card__answer-enemy {
   font-size: 0.875rem;
@@ -363,9 +367,11 @@ li {
 }
 .body .wrapper .main .container__main .playing-Field .playing-Field__user .playing-Field__card .card__img {
   max-width: 6.25rem;
+  min-height: 7.25rem;
+  max-height: 6.25rem;
   margin-top: 1.25rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .body .wrapper .main .container__main .playing-Field .playing-Field__user .playing-Field__card .card__question {
   font-size: 1.125rem;

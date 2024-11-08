@@ -3,8 +3,8 @@ import { img, paragraph, answerSky } from "./scenario.js";
 const wrapper = document.querySelector(".wrapper");
 
 //Смена картинок и диалогов
-let counterClickBtn = 32;
-let counterImg = 15;
+let counterClickBtn = 0;
+let counterImg = 0;
 let counterHeart = 100;
 
 const slider = document.querySelector(".slider");
@@ -379,6 +379,13 @@ playingFieldBtnGame.addEventListener("click", () => {
   }
   removeInactive();
   if (counterMove === 10) {
+    slider.classList.remove("slider-inactive");
+    playingField.classList.remove("playing-Field-active");
+    counterClickBtn = 35;
+    counterImg -= 1;
+    handleSliderChange();
+    showTextJornal();
+    showprogress();
     // playSoundWin();
     // showYouWin(userName);
   }
@@ -410,6 +417,14 @@ const startFight = () => {
   addHearEnemy(therapyEnemy);
 
   if (counterHeartEnemy <= 0) {
+    slider.classList.remove("slider-inactive");
+    playingField.classList.remove("playing-Field-active");
+    handleSliderChange();
+    showTextJornal();
+    showprogress();
+  }
+  if (counterHeart <= 0) {
+    showYouLoose();
   }
 
   removeOldCard();
