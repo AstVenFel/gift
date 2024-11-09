@@ -24,6 +24,7 @@ a {
 li {
     list-style-type: none;
 }
+
 html {
     @media (max-width: 720px) {
         font-size: 14px;
@@ -67,9 +68,9 @@ html {
             flex-direction: column;
             align-items: center;
             .popup__title {
-                margin-bottom: 10px;
+                margin-bottom: 0.625rem;
                 font-family: font-title;
-                font-size: 72px;
+                font-size: 4.5rem;
                 color: #fafafa;
                 text-align: center;
                 text-shadow:
@@ -80,7 +81,8 @@ html {
             }
             .popup__text {
                 margin-top: 50vh;
-                font-size: 45px;
+                padding: 0px 0.625rem;
+                font-size: 2.8125rem;
                 color: #050505;
                 text-align: center;
                 text-shadow:
@@ -129,7 +131,7 @@ html {
             .container {
                 .header__title {
                     font-family: font-title;
-                    font-size: 45px;
+                    font-size: 4.5rem;
                     color: #000000;
                     text-align: center;
                     text-shadow:
@@ -194,9 +196,10 @@ html {
 
                         button {
                             margin-top: 1.875rem;
-                            font-size: 1.5625rem;
+                            font-size: 1.5rem;
                             padding: 0.625rem 1.25rem;
                             border-radius: 1.5625rem;
+                            border: none;
                             cursor: pointer;
                             transition: all 0.3s ease-in-out;
                             &:hover {
@@ -308,6 +311,37 @@ html {
                                 align-items: center;
                                 gap: 0.3125rem;
                                 filter: brightness(0.9);
+                                .txt-description-user {
+                                    &:nth-of-type(1) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/hearts.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+
+                                    &:nth-of-type(2) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/lightsaber.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+
+                                    &:nth-of-type(3) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/plus.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                                .card__skill-user {
+                                    text-align: center;
+                                }
                             }
                         }
                         .playing-Field__btn-game {
@@ -357,6 +391,37 @@ html {
                                 align-items: center;
                                 gap: 0.3125rem;
                                 filter: brightness(0.9);
+                                .txt-description-enemy {
+                                    &:nth-of-type(1) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/hearts.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+
+                                    &:nth-of-type(2) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/lightsaber.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+
+                                    &:nth-of-type(3) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/plus.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                                .card__skill-enemy {
+                                    text-align: center;
+                                }
                             }
                         }
                     }
@@ -412,6 +477,34 @@ html {
                                 align-items: center;
                                 gap: 0.7rem;
                                 filter: brightness(0.9);
+                                .txt-description {
+                                    &:nth-of-type(1) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/hearts.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+
+                                    &:nth-of-type(2) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/lightsaber.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+
+                                    &:nth-of-type(3) {
+                                        width: 1.25rem;
+                                        height: 1.25rem;
+                                        background-image: url(../assets/svg/sky/plus.svg);
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
                                 .card__heart {
                                     text-align: center;
                                 }
