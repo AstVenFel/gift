@@ -37,6 +37,9 @@ const popupTitle = document.querySelector(".popup__title");
 const popupText = document.querySelector(".popup__text");
 
 sliderNext.addEventListener("click", () => {
+  if (counterClickBtn === 0) {
+    document.querySelector(".header__title").style.display = "none";
+  }
   if (counterClickBtn === 25) {
     showYouLoose();
   }
@@ -47,11 +50,21 @@ sliderNext.addEventListener("click", () => {
     slider.classList.add("slider-inactive");
     playingField.classList.add("playing-Field-active");
   }
+  if (counterClickBtn === 40) {
+    wrapper.style.backgroundImage = `url(${img[21]})`;
+  }
+  if (counterClickBtn === 42) {
+    popup.style.backgroundImage = "url(./assets/img/act_3/win.jpeg)";
+    popupTitle.textContent = "Хорошая концовка";
+    popupText.textContent = "Вы отправляетесь на встречу приключениям!";
+    popup.classList.add("popup-active");
+  }
   handleSliderChange();
   showInputDoor();
   showTextJornal();
   showprogress();
   changeNameBtn();
+  getSound();
   console.log(counterClickBtn);
   console.log(counterImg);
 });
@@ -59,7 +72,7 @@ sliderNext.addEventListener("click", () => {
 
 //концовка смерти
 const showYouLoose = () => {
-  popup.style.backgroundImage = "url(../assets/img/act_2/die.jpg)";
+  popup.style.backgroundImage = "url(./assets/img/act_2/die.jpg)";
   popupTitle.textContent = "Плохая концовка";
   popupText.textContent = "Вы умерли!";
   popup.classList.add("popup-active");
@@ -95,6 +108,8 @@ const changeNameBtn = () => {
   } else if (counterClickBtn === 36) {
     slider.classList.add("slider-inactive");
     playingField.classList.add("playing-Field-active");
+  } else if (counterClickBtn === 42) {
+    sliderNext.textContent = "Конец";
   }
 };
 
@@ -387,7 +402,6 @@ playingFieldBtnGame.addEventListener("click", () => {
     showTextJornal();
     showprogress();
     // playSoundWin();
-    // showYouWin(userName);
   }
 });
 
@@ -419,6 +433,8 @@ const startFight = () => {
   if (counterHeartEnemy <= 0) {
     slider.classList.remove("slider-inactive");
     playingField.classList.remove("playing-Field-active");
+    counterClickBtn -= 1;
+    counterImg -= 1;
     handleSliderChange();
     showTextJornal();
     showprogress();
@@ -472,4 +488,39 @@ const removeOldCard = () => {
   cardSkillEnemy[2].textContent = 0;
 };
 
+//
+
+//звуки первый акт
+const soundTrain = document.querySelector(".sound-train");
+const soundCar = document.querySelector(".sound-car");
+const soundOpenDoor = document.querySelector(".sound-open-door");
+const soundDrooperDoor = document.querySelector(".sound-drooper-door");
+const soundBell = document.querySelector(".sound-bell");
+const soundOpenZamok = document.querySelector(".sound-drooper-door");
+// звуки второй акт
+const soundBook = document.querySelector(".sound-book");
+const soundCreak = document.querySelector(".sound-creak");
+const soundHit = document.querySelector(".sound-hit");
+const soundQuick = document.querySelector(".sound-quick");
+// звуки третий акт
+const soundSpace = document.querySelector(".sound-space");
+const soundSword = document.querySelector(".sound-sword");
+
+const getSound = () => {
+  if (counterClickBtn === 2) {
+    stopPlay(soundTrain);
+    playSound(soundCar);
+  }
+};
+
+function playSound(elem) {
+  elem.currentTime = 0;
+  elem.play();
+}
+playSound(soundTrain);
+
+function stopPlay(elem) {
+  elem.pause();
+  elem.currentTime = 0;
+}
 //

@@ -4,13 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ночь в особняке</title>
+    <title>За пределом</title>
     <link rel="stylesheet" href="./css/style.css">
     <script defer type="module" src="./js/main.js"></script>
     <script defer type="module" src="./js/scenario.js"></script>
+    <link rel="shortcut icon" href="./assets/ghost.svg" type="image/x-icon">
 </head>
 
 <body class="body">
+    <audio class="sound-bell" src="./assets/media/act_1/door-bell-1-ring.mp3"></audio>
+    <audio class="sound-open-door" src="./assets/media/act_1/door-opeining-and-creaking.mp3"></audio>
+    <audio class="sound-drooper-door" src="./assets/media/act_1/keys-dropped-on-floor_zyokgpeo1.mp3"></audio>
+    <audio class="sound-train" src="./assets/media/act_1/z_uk-poezda.mp3" loop></audio>
+    <audio class="sound-open-zamok" src="./assets/media/act_1/zvuk-otmykanija-dveri.mp3"></audio>
+    <audio class="sound-car" src="./assets/media/act_1/kar.mp3"></audio>
+
+    <audio class="sound-book" src="./assets/media/act_2/book-paperback-page-turn_zyk7bv4_.mp3"></audio>
+    <audio class="sound-creak" src="./assets/media/act_2/carpet_creak.mp3"></audio>
+    <audio class="sound-hit" src="./assets/media/act_2/hit-02.mp3"></audio>
+    <audio class="sound-quick" src="./assets/media/act_2/quick-alt4.mp3"></audio>
+
+    <audio class="sound-space" src="./assets/media/act_3/kosmosa.mp3"></audio>
+    <audio class="sound-sword" src="./assets/media/act_3/laser-sword.mp3"></audio>
+
     <div class="wrapper">
         <div class="popup">
             <h1 class="popup__title">Нейтральная концовка</h1>
@@ -20,7 +36,7 @@
         </div>
         <header class="header">
             <div class="container">
-                <h1 class="header__title">Ночь в особняке</h1>
+                <h1 class="header__title">За пределом</h1>
             </div>
         </header>
         <main class="main">
@@ -90,9 +106,9 @@
                             <img class="card__img-user" src="./assets/svg/sky/null.svg" alt="card">
                             <input type="text" class="card__answer-user">
                             <div class="card__skils-user">
-                                <div class="txt-description-user" title="Жизнь">Ж</div>
-                                <div class="txt-description-user" title="Атака">А</div>
-                                <div class="txt-description-user" title="Лечение">Л</div>
+                                <div class="txt-description-user" title="Жизнь"></div>
+                                <div class="txt-description-user" title="Атака"></div>
+                                <div class="txt-description-user" title="Лечение"></div>
                                 <div class="card__skill-user">0</div>
                                 <div class="card__skill-user">0</div>
                                 <div class="card__skill-user">0</div>
@@ -104,9 +120,9 @@
                             <img class="card__img-enemy" src="./assets/svg/sky/null.svg" alt="card">
                             <input type="text" class="card__answer-enemy">
                             <div class="card__skils-enemy">
-                                <div class="txt-description-enemy" title="Жизнь">Ж</div>
-                                <div class="txt-description-enemy" title="Атака">А</div>
-                                <div class="txt-description-enemy" title="Лечение">Л</div>
+                                <div class="txt-description-enemy" title="Жизнь"></div>
+                                <div class="txt-description-enemy" title="Атака"></div>
+                                <div class="txt-description-enemy" title="Лечение"></div>
                                 <div class="card__skill-enemy">0</div>
                                 <div class="card__skill-enemy">0</div>
                                 <div class="card__skill-enemy">0</div>
@@ -116,41 +132,13 @@
                     </div>
                     <div class="playing-Field__user">
                         <div class="playing-Field__card">
-                            <img class="card__img" src="./assets/img/act_3/card/11.png" alt="card">
+                            <img class="card__img" src="./assets/img/act_3/card/1.png" alt="card">
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
-                                <div class="card__heart"></div>
-                                <div class="card__attack"></div>
-                                <div class="card__healing"></div>
-                            </div>
-                            <button class="card__btn" type="button">Выбрать</button>
-                        </div>
-                        <div class="playing-Field__card">
-                            <img class="card__img" src="./assets/img/act_3/card/10.png" alt="card">
-                            <div class="card__question"></div>
-                            <input type="text" class="card__answer" placeholder="Ответ с заглавной">
-                            <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
-                                <div class="card__heart"></div>
-                                <div class="card__attack"></div>
-                                <div class="card__healing"></div>
-                            </div>
-                            <button class="card__btn" type="button">Выбрать</button>
-                        </div>
-                        <div class="playing-Field__card">
-                            <img class="card__img" src="./assets/img/act_3/card/11.png" alt="card">
-                            <div class="card__question"></div>
-                            <input type="text" class="card__answer" placeholder="Ответ с заглавной">
-                            <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -162,9 +150,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -176,9 +164,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -190,9 +178,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -204,9 +192,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -218,9 +206,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -232,9 +220,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -246,9 +234,9 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
@@ -260,9 +248,37 @@
                             <div class="card__question"></div>
                             <input type="text" class="card__answer" placeholder="Ответ с заглавной">
                             <div class="card__skils">
-                                <div class="txt-description" title="Жизнь">Ж</div>
-                                <div class="txt-description" title="Атака">А</div>
-                                <div class="txt-description" title="Лечение">Л</div>
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
+                                <div class="card__heart"></div>
+                                <div class="card__attack"></div>
+                                <div class="card__healing"></div>
+                            </div>
+                            <button class="card__btn" type="button">Выбрать</button>
+                        </div>
+                        <div class="playing-Field__card">
+                            <img class="card__img" src="./assets/img/act_3/card/10.png" alt="card">
+                            <div class="card__question"></div>
+                            <input type="text" class="card__answer" placeholder="Ответ с заглавной">
+                            <div class="card__skils">
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
+                                <div class="card__heart"></div>
+                                <div class="card__attack"></div>
+                                <div class="card__healing"></div>
+                            </div>
+                            <button class="card__btn" type="button">Выбрать</button>
+                        </div>
+                        <div class="playing-Field__card">
+                            <img class="card__img" src="./assets/img/act_3/card/11.png" alt="card">
+                            <div class="card__question"></div>
+                            <input type="text" class="card__answer" placeholder="Ответ с заглавной">
+                            <div class="card__skils">
+                                <div class="txt-description" title="Жизнь"></div>
+                                <div class="txt-description" title="Атака"></div>
+                                <div class="txt-description" title="Лечение"></div>
                                 <div class="card__heart"></div>
                                 <div class="card__attack"></div>
                                 <div class="card__healing"></div>
