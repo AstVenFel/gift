@@ -526,3 +526,6 @@ li {
   font-size: 1.5rem;
   color: #ffffff;
 }
+.body .wrapper-filter {
+  filter: brightness(0.7);
+}
