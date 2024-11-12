@@ -59,6 +59,11 @@ sliderNext.addEventListener("click", () => {
     popupText.textContent = "Вы отправляетесь на встречу приключениям!";
     popup.classList.add("popup-active");
   }
+  if (counterClickBtn === 42) {
+    stopPlay(soundForest);
+    playSound(soundWingame);
+  }
+
   handleSliderChange();
   showInputDoor();
   showTextJornal();
@@ -69,13 +74,20 @@ sliderNext.addEventListener("click", () => {
   console.log(counterImg);
 });
 //
-
+const soundEndgame = document.querySelector(".sound-endgame");
+const soundHoror = document.querySelector(".sound-horor");
+const soundSpace = document.querySelector(".sound-space");
+const soundGrowl = document.querySelector(".sound-growl");
 //концовка смерти
 const showYouLoose = () => {
   popup.style.backgroundImage = "url(./assets/img/act_2/die.jpg)";
   popupTitle.textContent = "Плохая концовка";
   popupText.textContent = "Вы умерли!";
   popup.classList.add("popup-active");
+  playSound(soundEndgame);
+  stopPlay(soundHoror);
+  stopPlay(soundSpace);
+  stopPlay(soundGrowl);
 };
 //
 
@@ -87,6 +99,8 @@ const changeNameBtn = () => {
     sliderNext.textContent = "Осмотреть дом";
   } else if (counterClickBtn === 9) {
     sliderNext.textContent = "продолжить";
+  } else if (counterClickBtn === 22) {
+    wrapper.classList.add("wrapper-filter");
   } else if (counterClickBtn === 23) {
     sliderAct.textContent = "Принять таблетки";
     sliderNext.textContent = "Спуститься вниз";
@@ -113,23 +127,32 @@ const changeNameBtn = () => {
   }
 };
 
+const soundEndgameNeitro = document.querySelector(".sound-endgameNeitro");
+const soundMainActOne = document.querySelector(".sound-mainAct_One");
 sliderAct.addEventListener("click", () => {
   if (counterClickBtn === 29) {
     sliderNext.textContent = "Продолжить";
     sliderAct.classList.add("slider-Act-inactive");
     handleSliderChange();
     showprogress();
+    playSoundQuick();
+    stopHororPlayEmpty();
   }
   if ((counterClickBtn >= 23) & (counterClickBtn < 29)) {
+    playSoundQuick();
     counterClickBtn = 25;
     counterImg = 12;
     handleSliderChange();
     showprogress();
     sliderNext.textContent = "Отбиться";
     sliderAct.classList.add("slider-Act-inactive");
+    wrapper.classList.remove("wrapper-filter");
   } else if (counterClickBtn <= 22) {
     popup.classList.add("popup-active");
+    stopPlay(soundMainActOne);
+    playSound(soundEndgameNeitro);
   }
+  getSound();
 });
 
 //первый квест
@@ -148,6 +171,7 @@ const showInputDoor = () => {
 const startTaskOne = () => {
   if (inputDoor.value.toLowerCase() === "vriend") {
     handleSliderChange();
+    playSoundOpenDoor();
     sliderNext.textContent = "Войти внутрь";
     inputBox.classList.remove("input-box-active");
   } else if (inputDoor.value.length !== 0) {
@@ -155,6 +179,7 @@ const startTaskOne = () => {
     counterImg -= 1;
     inputDoor.value = "";
     inputDoor.setAttribute("placeholder", "не угадал");
+    playSoundCloseDoor();
   } else {
     counterClickBtn = 5;
     counterImg -= 1;
@@ -205,6 +230,7 @@ const timeGame = (timeEnd, intervall) => {
       if (e.target.className === "card-box__card card-box__card-active") {
         flag = true;
       }
+      playSoundHit();
     });
     if (flag === false) {
       counterHeart -= 10;
@@ -330,15 +356,16 @@ const getAnswer = (e) => {
   }
 };
 //
-
+const soundRight = document.querySelector(".sound-right");
+const soundLoose = document.querySelector(".sound-loose");
 //Проверка ответа
 const checkAnswer = (answer, question) => {
   if (answer.value === answerSky[question][0]) {
     changeSkillCard(answerSky, question);
-    // playSoundRight();
+    playSound(soundRight);
   } else {
     answer.value = answerSky[question][0];
-    // playSoundEroro();
+    playSound(soundLoose);
   }
 };
 //
@@ -387,8 +414,10 @@ const showCardEnemy = (arrAnswerSky, counterMove) => {
 
 //Начать бой
 const playingFieldBtnGame = document.querySelector(".playing-Field__btn-game");
+const soundSword = document.querySelector(".sound-sword");
 
 playingFieldBtnGame.addEventListener("click", () => {
+  playSound(soundSword);
   if (cardSkillEnemy[0].textContent != 0) {
     startFight();
   }
@@ -401,7 +430,6 @@ playingFieldBtnGame.addEventListener("click", () => {
     handleSliderChange();
     showTextJornal();
     showprogress();
-    // playSoundWin();
   }
 });
 
@@ -494,33 +522,121 @@ const removeOldCard = () => {
 const soundTrain = document.querySelector(".sound-train");
 const soundCar = document.querySelector(".sound-car");
 const soundOpenDoor = document.querySelector(".sound-open-door");
-const soundDrooperDoor = document.querySelector(".sound-drooper-door");
+const soundOpenZamokr = document.querySelector(".sound-open-zamok");
 const soundBell = document.querySelector(".sound-bell");
-const soundOpenZamok = document.querySelector(".sound-drooper-door");
+const soundDrooperDoor = document.querySelector(".sound-drooper-door");
 // звуки второй акт
 const soundBook = document.querySelector(".sound-book");
 const soundCreak = document.querySelector(".sound-creak");
 const soundHit = document.querySelector(".sound-hit");
 const soundQuick = document.querySelector(".sound-quick");
+const soundHlam = document.querySelector(".sound-hlam");
+const soundShagi = document.querySelector(".sound-shagi");
 // звуки третий акт
-const soundSpace = document.querySelector(".sound-space");
-const soundSword = document.querySelector(".sound-sword");
+const empty = document.querySelector(".empty");
+const soundScream = document.querySelector(".sound-scream");
+const soundBackfromspace = document.querySelector(".sound-backfromspace");
+const soundForest = document.querySelector(".sound-forest");
+const soundStepsForest = document.querySelector(".sound-stepsForest");
+const soundKardio = document.querySelector(".sound-kardio");
+const soundSstepsPlan = document.querySelector(".sound-stepsPlan");
+const soundWingame = document.querySelector(".sound-wingame");
 
 const getSound = () => {
   if (counterClickBtn === 2) {
     stopPlay(soundTrain);
-    playSound(soundCar);
+    playSound(soundCar, 7);
+  } else if (counterClickBtn === 4) {
+    stopPlay(soundCar);
+    playSound(soundBell);
+  } else if (counterClickBtn === 5) {
+    stopPlay(soundCar);
+  } else if (counterClickBtn === 8) {
+    stopPlay(soundOpenZamokr);
+    playSound(soundOpenDoor);
+  } else if (counterClickBtn === 9) {
+    stopPlay(soundOpenDoor);
+    playSound(soundCreak);
+  } else if (counterClickBtn >= 12 && counterClickBtn <= 21) {
+    stopPlay(soundCreak);
+    playSound(soundBook);
+  } else if (counterClickBtn === 22) {
+    stopPlay(soundMainActOne);
+    stopPlay(soundBook);
+    playSound(soundHoror);
+  } else if (counterClickBtn === 23) {
+    playSound(soundHlam, 0, 0.8);
+  } else if (counterClickBtn === 24) {
+    stopPlay(soundHlam);
+    playSound(soundHit);
+    playSound(soundShagi, 0, 1);
+  } else if (counterClickBtn === 25) {
+    stopPlay(soundShagi);
+    playSound(soundHit);
+  } else if (counterClickBtn === 26) {
+    stopPlay(soundShagi);
+    setTimeout(playSound, 2000, soundGrowl);
+  } else if (counterClickBtn === 32) {
+    stopPlay(empty);
+    playSound(soundSpace, 4, 0.2);
+  } else if (counterClickBtn === 34) {
+    setTimeout(playSound, 2000, soundScream);
+  } else if (counterClickBtn === 38) {
+    playSound(soundBackfromspace);
+  } else if (counterClickBtn === 39) {
+    stopPlay(soundSpace);
+    playSound(soundKardio);
+  } else if (counterClickBtn === 40) {
+    stopPlay(soundKardio);
+    playSound(soundForest);
+    setTimeout(playSound, 2000, soundStepsForest);
+  } else if (counterClickBtn === 41) {
+    stopPlay(soundStepsForest);
+    setTimeout(playSound, 1500, soundSstepsPlan);
+    setTimeout(stopPlay, 4000, soundSstepsPlan);
+  } else if (counterClickBtn === 43) {
+    stopPlay(soundForest);
+    playSound(soundWingame);
   }
 };
 
-function playSound(elem) {
-  elem.currentTime = 0;
+function playSound(elem, time = 0, volume = 0.5) {
+  elem.currentTime = time;
   elem.play();
+  elem.volume = volume;
 }
 playSound(soundTrain);
+playSound(soundMainActOne);
+soundMainActOne.volume = 0.008;
 
 function stopPlay(elem) {
   elem.pause();
   elem.currentTime = 0;
 }
+
+function playSoundOpenDoor() {
+  soundOpenZamokr.currentTime = 0;
+  soundOpenZamokr.play();
+}
+function playSoundCloseDoor() {
+  soundDrooperDoor.currentTime = 0;
+  soundDrooperDoor.play();
+}
+
+function playSoundHit() {
+  soundHit.currentTime = 0;
+  soundHit.play();
+}
+function playSoundQuick() {
+  soundQuick.currentTime = 0;
+  soundQuick.play();
+}
+
+function stopHororPlayEmpty() {
+  soundHoror.pause();
+  soundHoror.currentTime = 0;
+  empty.currentTime = 0;
+  empty.play();
+}
+
 //
