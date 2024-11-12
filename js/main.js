@@ -130,6 +130,9 @@ const changeNameBtn = () => {
 const soundEndgameNeitro = document.querySelector(".sound-endgameNeitro");
 const soundMainActOne = document.querySelector(".sound-mainAct_One");
 sliderAct.addEventListener("click", () => {
+  if (counterClickBtn === 2) {
+    playSound(soundMainActOne);
+  }
   if (counterClickBtn === 29) {
     sliderNext.textContent = "Продолжить";
     sliderAct.classList.add("slider-Act-inactive");
@@ -607,7 +610,7 @@ function playSound(elem, time = 0, volume = 0.5) {
 }
 playSound(soundTrain);
 playSound(soundMainActOne);
-soundMainActOne.volume = 0.008;
+soundMainActOne.volume = 0.05;
 
 function stopPlay(elem) {
   elem.pause();
